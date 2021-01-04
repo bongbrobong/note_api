@@ -1,0 +1,16 @@
+scalar Date
+
+type NOTE {
+    noteNo:Int!
+    menuNo:Int!
+    noteVer:String
+    noteCont:String
+    releaseFilePath:String
+    releaseFileDownCnt:String
+    debugFilePath:String
+    debugFileDownCnt:String
+    createMngNo:Int
+    createDt:Date
+    updateMngNo:Int
+    updateDt:Date
+}

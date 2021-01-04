@@ -1,0 +1,35 @@
+spring:
+  liquibase:
+    contexts: default
+  datasource:
+    tomcat:
+      validation-query: SELECT 1;
+      test-on-borrow: true
+      testWhileIdle: true
+      max-wait: 30000
+      max-active: 400
+    url: jdbc:mariadb://localhost:3306/note
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    username: bwkim
+    password: 1234
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        jdbc:
+          time_zone: UTC
+          batch_size: 200
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+        enable_lazy_load_no_trans: true
+    hibernate:
+      ddl-auto: none
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: false
+    exception-handlers-enabled: true
+    contextSetting: PER_REQUEST_WITH_INSTRUMENTATION
