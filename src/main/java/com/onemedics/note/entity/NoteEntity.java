@@ -20,5 +20,5 @@ public class NoteEntity {
     private String noteVer;
 
     @Column(name = "note_cont")
-    private String noteVer;
+    private String noteCont;
 }

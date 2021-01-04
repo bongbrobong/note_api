@@ -8,10 +8,10 @@ spring:
       testWhileIdle: true
       max-wait: 30000
       max-active: 400
-    url: jdbc:mariadb://localhost:3306/note
-    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    username: bwkim
-    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3308/note?zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 1111
   jpa:
     properties:
       hibernate:
@@ -25,7 +25,7 @@ spring:
         order_updates: true
         enable_lazy_load_no_trans: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
 graphql:
   servlet:
     mapping: /graphql
