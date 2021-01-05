@@ -1,4 +1,4 @@
-package com.onemedics.note.entity;
+package com.onemedics.onetooth.entity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -18,9 +18,6 @@ public class BoardEntity {
     @Column(name = "board_no", nullable = false)
     private long boardNo;
 
-    @Column(name = "menu_no", nullable = false)
-    private long menuNo;
-
     @Column(name = "board_title", nullable = false)
     private String boardTitle;
 
@@ -33,12 +30,9 @@ public class BoardEntity {
     @Column(name = "board_cont")
     private String boardCont;
 
-    @Column(name = "board_type")
-    private String boardType;
+    @Column(name = "create_at")
+    private LocalDateTime createAt;
 
-    @Column(name = "create_dt")
-    private LocalDateTime createDt;
-
-    @Column(name = "update_dt")
-    private LocalDateTime updateDt;
+    @Column(name = "update_at")
+    private LocalDateTime updateAt;
 }

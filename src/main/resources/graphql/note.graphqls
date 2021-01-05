@@ -2,90 +2,59 @@ scalar Date
 
 type NOTE {
     noteNo:Int!
-    menuNo:Int!
     noteVer:String
     noteCont:String
     releaseFilePath:String
     releaseFileDownCnt:String
     betaFilePath:String
     betaFileDownCnt:String
-    createMngNo:Int
-    createDt:Date
-    updateMngNo:Int
-    updateDt:Date
+    createMngNo:Int!
+    createAt:Date
+    updateMngNo:Int!
+    updateAt:Date
     attachments:[ATTACHMENT]
 }
 
-type MENU {
-    menuNo:Int!
-    menuPNo:Int!
-    menuName:String
-    menuOrder:String
-    menuAt:Boolean
-    createDt:Date
-    updateDt:Date
+type BOARD {
+    boardNo:Int!
+    boardTitle:String!
+    createUser:String!
+    boardPassword:String!
+    boardCont:String
+    createAt:Date
+    updateAt:Date
+    attachments:[ATTACHMENT]
 }
 
-
-type BOARD {
-boardNo:Int!
-menuNo:Int!
-boardTitle:String!
-createUser:String!
-boardPassword:String!
-boardCont:String
-fileAt:String
-createDt:Date
-updateDt:Date
-attachments:[ATTACHMENT]
+type SUB_BOARD {
+    subBoardNo:Int!
+    boardNo:Int!
+    subBoardCont:String
+    createUser:String!
+    subBoardPassword:String!
+    createAt:Date
+    updateAt:Date
 }
 
 type MANAGER {
-mngNo:Int!
-mngName:String
-mngPassword:String
-mngAuth:String
-mngAt:Boolean
-createDt:Date
-updateDt:Date
+    mngNo:Int!
+    mngName:String
+    mngPassword:String
+    mngEnable:Boolean
+    createAt:Date
+    updateAt:Date
 }
 
 type ATTACHMENT {
     fileNo:Int!
-    subNo:Int
-    subType:String
+    noteNo:Int
+    boardNo:Int
     filePath:String
-    fileAt:Boolean
-    createDt:Date
-    updateDt:Date
+    fileEnable:Boolean
+    createAt:Date
+    updateAt:Date
 }
 
 type Query {
-    findAllNotes:[NOTE]
-}
-
-query {
-    findAllNotes{
-        noteNo
-        menuNo
-        noteVer
-        noteCont
-        releaseFilePath
-        releaseFileDownCnt
-        betaFilePath
-        betaFileDownCnt
-        createMngNo
-        createDt
-        updateMngNo
-        updateDt
-        attachments{
-            fileNo
-            subNo
-            subType
-            filePath
-            fileAt
-            createDt
-            updateDt
-        }
-    }
+    recentNotes(count: Int, offset: Int):[NOTE]!
 }

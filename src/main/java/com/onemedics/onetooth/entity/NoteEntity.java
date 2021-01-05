@@ -1,4 +1,4 @@
-package com.onemedics.note.entity;
+package com.onemedics.onetooth.entity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -17,9 +17,6 @@ public class NoteEntity {
     @GeneratedValue
     @Column(name = "note_no", nullable = false)
     public long noteNo;
-
-    @Column(name = "menu_no", nullable = false)
-    private long menuNo;
 
     @Column(name = "note_ver")
     private String noteVer;
@@ -42,12 +39,13 @@ public class NoteEntity {
     @Column(name = "create_mng_no")
     private int createMngNo;
 
-    @Column(name = "create_dt")
-    private LocalDateTime createDt;
+    @Column(name = "create_at")
+    private LocalDateTime createAt;
 
     @Column(name = "update_mng_no")
     private int updateMngNo;
 
-    @Column(name = "update_dt")
-    private LocalDateTime updateDt;
+    @Column(name = "update_at")
+    private LocalDateTime updateAt;
+
 }

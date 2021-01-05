@@ -1,4 +1,4 @@
-package com.onemedics.note.entity;
+package com.onemedics.onetooth.entity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -18,17 +18,17 @@ public class AttachmentEntity {
     @Column(name = "file_no", nullable = false)
     private long fileNo;
 
-    @Column(name = "sub_no")
-    public long subNo;
+    @Column(name = "note_no")
+    public long noteNo;
 
-    @Column(name = "sub_type")
-    private String subType;
+    @Column(name = "board_no")
+    public long boardNo;
 
-    @Column(name = "file_path")
+    @Column(name = "file_path", nullable = false)
     private String filePath;
 
-    @Column(name = "file_at")
-    private boolean fileAt;
+    @Column(name = "file_enable")
+    private boolean fileEnable;
 
     @Column(name = "create_dt")
     private LocalDateTime createDt;

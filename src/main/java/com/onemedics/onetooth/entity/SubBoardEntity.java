@@ -1,4 +1,4 @@
-package com.onemedics.note.entity;
+package com.onemedics.onetooth.entity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -30,9 +30,9 @@ public class SubBoardEntity {
     @Column(name = "sub_board_password", nullable = false)
     private String subBoardPassword;
 
-    @Column(name = "create_dt")
-    private LocalDateTime createDt;
+    @Column(name = "create_at")
+    private LocalDateTime createAt;
 
-    @Column(name = "update_dt")
-    private LocalDateTime updateDt;
+    @Column(name = "update_at")
+    private LocalDateTime updateAt;
 }
