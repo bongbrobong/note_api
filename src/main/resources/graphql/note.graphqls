@@ -7,10 +7,85 @@ type NOTE {
     noteCont:String
     releaseFilePath:String
     releaseFileDownCnt:String
-    debugFilePath:String
-    debugFileDownCnt:String
+    betaFilePath:String
+    betaFileDownCnt:String
     createMngNo:Int
     createDt:Date
     updateMngNo:Int
     updateDt:Date
+    attachments:[ATTACHMENT]
+}
+
+type MENU {
+    menuNo:Int!
+    menuPNo:Int!
+    menuName:String
+    menuOrder:String
+    menuAt:Boolean
+    createDt:Date
+    updateDt:Date
+}
+
+
+type BOARD {
+boardNo:Int!
+menuNo:Int!
+boardTitle:String!
+createUser:String!
+boardPassword:String!
+boardCont:String
+fileAt:String
+createDt:Date
+updateDt:Date
+attachments:[ATTACHMENT]
+}
+
+type MANAGER {
+mngNo:Int!
+mngName:String
+mngPassword:String
+mngAuth:String
+mngAt:Boolean
+createDt:Date
+updateDt:Date
+}
+
+type ATTACHMENT {
+    fileNo:Int!
+    subNo:Int
+    subType:String
+    filePath:String
+    fileAt:Boolean
+    createDt:Date
+    updateDt:Date
+}
+
+type Query {
+    findAllNotes:[NOTE]
+}
+
+query {
+    findAllNotes{
+        noteNo
+        menuNo
+        noteVer
+        noteCont
+        releaseFilePath
+        releaseFileDownCnt
+        betaFilePath
+        betaFileDownCnt
+        createMngNo
+        createDt
+        updateMngNo
+        updateDt
+        attachments{
+            fileNo
+            subNo
+            subType
+            filePath
+            fileAt
+            createDt
+            updateDt
+        }
+    }
 }

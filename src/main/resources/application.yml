@@ -1,35 +1,36 @@
 spring:
-  liquibase:
-    contexts: default
   datasource:
-    tomcat:
-      validation-query: SELECT 1;
-      test-on-borrow: true
-      testWhileIdle: true
-      max-wait: 30000
-      max-active: 400
+    url: jdbc:mysql://localhost:3306/note?zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&serverTimezone=UTC
+    username: bwkim
+    password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3308/note?zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&serverTimezone=UTC
-    username: root
-    password: 1111
   jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     properties:
       hibernate:
-        hbm2ddl:
-          auto: none
-        jdbc:
-          time_zone: UTC
-          batch_size: 200
-          batch_versioned_data: true
-        order_inserts: true
-        order_updates: true
-        enable_lazy_load_no_trans: true
-    hibernate:
-      ddl-auto: create
+        format_sql: true
+
+server:
+  port: 8080
+
 graphql:
   servlet:
     mapping: /graphql
     enabled: true
-    corsEnabled: false
+    corsEnabled: true
     exception-handlers-enabled: true
     contextSetting: PER_REQUEST_WITH_INSTRUMENTATION
+  datetime:
+    scalars:
+      date:
+        scalarName: Date
+      localDate:
+        scalarName: LocalDate
+      localDateTime:
+        scalarName: LocalDateTime
+      localTime:
+        scalarName: LocalTime
+      zone-conversion-enabled: true
